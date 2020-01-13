@@ -1,0 +1,8 @@
+MnistCNN:
+python param_server.py --ps-ip=192.168.39.131 --ps-port=29500 --data-dir=~/Data/Mnist --this-rank=0 --learners=1-2 --epochs=100 --model=MnistCNN --momentum=0.99 --train_bsz=200
+python learner.py --ps-ip=192.168.39.131 --ps-port=29500 --data-dir=~/Data/Mnist --this-rank=1 --learners=1-2 --model=MnistCNN --epochs=100 --lr=0.01 --train_bsz=200
+
+
+AlexNet:
+python param_server.py --ps-ip=192.168.39.131 --ps-port=29500 --data-dir=~/Data/CIFAR100 --data-name=cifar100 --this-rank=0 --learners=1-2 --epochs=10 --model=AlexNet --momentum=0.99 --train_bsz=200
+python learner.py --ps-ip=192.168.39.131 --ps-port=29500 --data-dir=~/Data/CIFAR100 --data-name=cifar100 --this-rank=1 --learners=1-2 --epochs=10 --model=AlexNet --lr=0.01 --train_bsz=200
